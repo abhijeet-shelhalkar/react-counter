@@ -16,7 +16,9 @@ function InputBox(props) {
       // console.log("prevValue", prevValue);
     });
   }
+
   console.log("rendering input component");
+
   return (
     <div className={styles['action-items']}>
       <form className={styles['input-box']}>
