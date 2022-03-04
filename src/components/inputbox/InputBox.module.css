@@ -1,0 +1,44 @@
+.action-items,
+.input-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.action-items {
+  padding: 0% 0% 0% 1%;
+  width: 98%;
+}
+
+.btn-box {
+  margin: 0% 0% 0% 2%;
+}
+
+.input-box label {
+  width: 10%;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  min-width: 10%;
+}
+
+input[type=text] {
+  width: 20%;
+  height: 35px;
+  border: 2px solid #aaa;
+  border-radius: 4px;
+  margin: 8px 0;
+  outline: none;
+  padding: 8px;
+  box-sizing: border-box;
+  transition: .3s;
+  font-size: 14px;
+  font-family: sans-serif;
+}
+
+input[type=text]:focus {
+  border-color: dodgerBlue;
+  box-shadow: 0 0 8px 0 dodgerBlue;
+}
