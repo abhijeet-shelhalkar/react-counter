@@ -40,8 +40,8 @@ function App() {
         <Button btnText="Reset" onCounterChange={changeCounter}></Button>
       </div>
       <hr></hr>
-      <InputBox name="forground" text="Text Color:" onChangeColor={changeBoxColor}></InputBox>
-      <InputBox name="background" text="Background Color:" onChangeColor={changeBoxColor}></InputBox>
+      <InputBox name="forground" color={textColor} text="Text Color:" onChangeColor={changeBoxColor}></InputBox>
+      <InputBox name="background" color={bgColor} text="Background Color:" onChangeColor={changeBoxColor}></InputBox>
     </div>
   );
 }
