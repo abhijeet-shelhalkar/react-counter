@@ -4,7 +4,7 @@ function Button(props) {
 
   function onBtnClickHandler() {
     if (props.btnText === "Apply") {
-      props.onApply(props.btnText);
+      props.colorApply();
     } else {
       props.onCounterChange(props.btnText);
     }

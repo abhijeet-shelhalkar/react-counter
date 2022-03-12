@@ -7,6 +7,8 @@ import InputBox from './components/inputbox/InputBox';
 function App() {
 
   const [counter, setCounter] = useState(0);
+  const [textColor, setTextColor] = useState('#ffffff');
+  const [bgColor, setBgColor] = useState('#000000');
 
   function changeCounter(key) {
     if (key === "Increment") {
@@ -18,9 +20,19 @@ function App() {
     }
   }
 
+  function changeBoxColor(inputColor, colorFlag) {
+    // console.log("box color: ", inputColor);
+    // console.log("box color flag: ", colorFlag);
+    if (colorFlag === "forground") {
+      setTextColor(prevColor => prevColor = inputColor);
+    } else {
+      setBgColor(prevColor => prevColor = inputColor);
+    }
+  }
+
   return (
     <div className={styles['main-box']}>
-      <CustomCard count={counter} ></CustomCard>
+      <CustomCard count={counter} textColor={textColor} bgColor={bgColor}></CustomCard>
       <hr></hr>
       <div className={styles['action-btns']}>
         <Button btnText="Increment" onCounterChange={changeCounter}></Button>
@@ -28,8 +40,8 @@ function App() {
         <Button btnText="Reset" onCounterChange={changeCounter}></Button>
       </div>
       <hr></hr>
-      <InputBox name="forground" text="Text Color:"></InputBox>
-      <InputBox name="background" text="Background Color:"></InputBox>
+      <InputBox name="forground" text="Text Color:" onChangeColor={changeBoxColor}></InputBox>
+      <InputBox name="background" text="Background Color:" onChangeColor={changeBoxColor}></InputBox>
     </div>
   );
 }

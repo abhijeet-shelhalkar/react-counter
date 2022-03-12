@@ -1,34 +1,30 @@
-import { useState } from 'react';
+import { useRef } from 'react';
 import Button from '../button/Button';
 import styles from './InputBox.module.css';
 
 function InputBox(props) {
 
-  const [inputText, setInputText] = useState('');
+  const inputRef = useRef('');
 
-  function onChangeColor() {
-    console.log("apply", inputText);
+  function onApplyColorHandler() {
+    // console.log("inputRef", inputRef.current.value);
+    // console.log("props.name", props.name);
+    const inputText = inputRef.current.value;
+    props.onChangeColor(inputText, props.name);
   }
 
-  function setInputValue(event) {
-    setInputText(prevValue => {
-      prevValue = event.target.value;
-      // console.log("prevValue", prevValue);
-    });
-  }
-
-  console.log("rendering input component");
+  // console.log("rendering input component");
 
   return (
     <div className={styles['action-items']}>
-      <form className={styles['input-box']}>
+      <div className={styles['input-box']}>
         <label htmlFor={props.name}>{props.text}</label>
-        <input type="text" id={props.name} name={props.name}
-          placeholder="Enter #Hex color" value={inputText} onChange={setInputValue} />
+        <input ref={inputRef} type="text" id={props.name} name={props.name}
+          placeholder="Enter #Hex color" />
         <div className={styles['btn-box']}>
-          <Button btnText="Apply" onApply={onChangeColor}></Button>
+          <Button btnText="Apply" colorApply={onApplyColorHandler}></Button>
         </div>
-      </form>
+      </div>
     </div>
   );
 }
